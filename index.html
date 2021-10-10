@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body{
+            
+            padding: 150px 100px;
+            background-image: url(f3.jpg);
+        }
+        h1{
+            text-align: center;
+            background-color:transparent;
+            color: rgb(245, 84, 84);
+            padding: 10px;
+            margin: 0px;
+        }
+        #textbox{
+            background-color:transparent;
+            width: 99.4%;
+            border-color: yellow;
+            margin: 2px;
+
+            font-size: 30px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        
+
+        }
+        p{
+            text-align: center;
+            width: 99.4%;
+            background-color:transparent;
+            color: rgb(71, 255, 126);
+            font-size: 30px;
+            font-weight: bold;
+            padding: 2px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word And Character Counter</h1>
+    <textarea id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id ="word">0</span> word and 
+        <span id="char">0</span> characters
+    </p>
+    <script>
+        let textbox=document.getElementById("textbox");
+
+        textbox.addEventListener('input',function(){
+            var text=this.value;
+            let char=text.length;
+            
+            document.getElementById("char").innerHTML=char;    //here we length srtore in char variable  and then assign it
+            text=text.trim();
+
+            let word=text.split(" ");
+            let cleanlist=word.filter(function(elm){
+                return elm !="";
+                
+            })
+            document.getElementById("word").innerHTML=cleanlist.length;   // here we direct use 
+             
+        })
+    </script>
+
+</body>
+</html>
